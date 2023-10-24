@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.primaryBgColor{
+    @apply bg-[#4a9b35]
+}
+
+
+.my-container {
+    @apply lg:w-[85%] w-[90%] mx-auto;
+  }
+
+
