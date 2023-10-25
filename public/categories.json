@@ -11,27 +11,27 @@
   },
   {
     "id": 3,
-    "category_name": "Home & Garden",
+    "category_name": "Home",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
     "id": 4,
-    "category_name": "Sports & Outdoors",
+    "category_name": "Sports",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
     "id": 5,
-    "category_name": "Health & Beauty",
+    "category_name": "Health",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
     "id": 6,
-    "category_name": "Toys & Games",
+    "category_name": "Toys",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
     "id": 7,
-    "category_name": "Books & Media",
+    "category_name": "Books",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
@@ -51,12 +51,12 @@
   },
   {
     "id": 11,
-    "category_name": "Food & Grocery",
+    "category_name": "Food",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
     "id": 12,
-    "category_name": "Art & Collectibles",
+    "category_name": "Collectibles",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
@@ -71,12 +71,12 @@
   },
   {
     "id": 15,
-    "category_name": "Baby & Kids",
+    "category_name": "Baby",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
     "id": 16,
-    "category_name": "Music & Instruments",
+    "category_name": "Music",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
@@ -86,12 +86,12 @@
   },
   {
     "id": 18,
-    "category_name": "Garden & Tools",
+    "category_name": "Garden",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
     "id": 19,
-    "category_name": "Travel & Luggage",
+    "category_name": "Travel",
     "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
   },
   {
