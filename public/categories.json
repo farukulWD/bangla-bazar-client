@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "category_name": "Electronics",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 2,
+    "category_name": "Clothing",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 3,
+    "category_name": "Home & Garden",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 4,
+    "category_name": "Sports & Outdoors",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 5,
+    "category_name": "Health & Beauty",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 6,
+    "category_name": "Toys & Games",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 7,
+    "category_name": "Books & Media",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 8,
+    "category_name": "Automotive",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 9,
+    "category_name": "Jewelry",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 10,
+    "category_name": "Furniture",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 11,
+    "category_name": "Food & Grocery",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 12,
+    "category_name": "Art & Collectibles",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 13,
+    "category_name": "Pet Supplies",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 14,
+    "category_name": "Computers",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 15,
+    "category_name": "Baby & Kids",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 16,
+    "category_name": "Music & Instruments",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 17,
+    "category_name": "Outdoor Gear",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 18,
+    "category_name": "Garden & Tools",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 19,
+    "category_name": "Travel & Luggage",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  },
+  {
+    "id": 20,
+    "category_name": "Watches",
+    "picture": "https://i.ibb.co/kHSMgQ4/Electronics.png"
+  }
+]
