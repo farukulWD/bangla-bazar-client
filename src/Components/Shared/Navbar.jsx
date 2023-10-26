@@ -10,12 +10,12 @@ const Navbar = () => {
       </li>
       <li>
         <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">
-          Portfolio
+          Products
         </a>
       </li>
       <li>
         <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">
-          About
+          About us
         </a>
       </li>
     </>
@@ -71,7 +71,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content primaryBgColor rounded-box w-52"
+              className="mt-3 z-[50] p-2 shadow menu menu-sm dropdown-content primaryBgColor rounded-box w-52"
             >
               <li>
                 <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">

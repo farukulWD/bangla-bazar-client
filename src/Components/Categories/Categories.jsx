@@ -31,9 +31,7 @@ const Categories = () => {
       }}
       spaceBetween={30}
       freeMode={true}
-      //   pagination={{
-      //     clickable: true,
-      //   }}
+      // autoplay={true}
       modules={[FreeMode, Pagination, Autoplay]}
       className="mySwiper my-4"
     >
