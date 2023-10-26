@@ -5,7 +5,7 @@ const SingleCategory = ({ category }) => {
     <>
       <div className="text-center rounded cursor-pointer h-24 w-28 mx-auto p-1 ">
         <img
-          className="w-14 flex mx-auto h-14"
+          className="w-10 flex mx-auto h-10"
           src={category?.picture}
           alt=""
         />

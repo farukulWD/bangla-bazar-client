@@ -19,16 +19,9 @@ const Banner = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Swiper
-        // breakpoints={{
-        //   320: { slidesPerView: 2, spaceBetween: 20 },
-        //   480: { slidesPerView: 3, spaceBetween: 40 },
-        //   768: { slidesPerView: 4, spaceBetween: 50 },
-        //   1024: { slidesPerView: 8, spaceBetween: 70 },
-        // }}
-
-        // spaceBetween={30}
+        slidesPerView={1}
         freeMode={true}
         autoplay={true}
         modules={[FreeMode, Pagination, Autoplay]}
@@ -45,7 +38,7 @@ const Banner = () => {
             );
           })}
       </Swiper>
-    </div>
+    </>
   );
 };
 
