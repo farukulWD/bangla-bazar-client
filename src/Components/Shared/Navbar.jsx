@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 import { MdOutlineFavorite } from "react-icons/md";
 
 const Navbar = () => {
@@ -11,13 +11,17 @@ const Navbar = () => {
             BanglaBazar
           </a>
         </div>
-        <div className="form-control">
+        <div class="relative">
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered w-full md:w-[400px]"
+            class="input input-bordered w-full md:w-96 pr-10"
           />
+          <button class="absolute text-xl inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+            <AiOutlineSearch></AiOutlineSearch>
+          </button>
         </div>
+
         <div className="gap-2">
           <div className="text-white">
             <div className="dropdown dropdown-end">
