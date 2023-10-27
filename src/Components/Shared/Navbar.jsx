@@ -2,14 +2,13 @@ import React, { useContext, useState } from "react";
 import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 import { MdOutlineFavorite } from "react-icons/md";
 import { AuthContext } from "../../Context/AuthProvider";
-import { Link } from "react-router-dom";
-import Register from "../../Pages/Register/Register";
+import Login from "../../Pages/Login/Login";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
-  let [isOpen, setIsOpen] = useState(false);
-  function openModal() {
-    setIsOpen(true);
+  let [loginIsOpen, setLoginIsOpen] = useState(false);
+  function openLoginModal() {
+    setLoginIsOpen(true);
   }
   return (
     <div className="primaryBgColor ">
@@ -117,11 +116,17 @@ const Navbar = () => {
               </ul>
             </div>
           ) : (
-            <button onClick={openModal} className="btn btn-sm secondaryBtnText">
+            <button
+              onClick={openLoginModal}
+              className="btn btn-sm secondaryBtnText"
+            >
               login
             </button>
           )}
-          <Register isOpen={isOpen} setIsOpen={setIsOpen}></Register>
+          <Login
+            loginIsOpen={loginIsOpen}
+            setLoginIsOpen={setLoginIsOpen}
+          ></Login>
         </div>
       </div>
     </div>

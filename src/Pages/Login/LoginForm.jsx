@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Login from "../Login/Login";
+import Register from "../Register/Register";
 
-const RegisterForm = ({ openLoginModal }) => {
-  let [loginIsOpen, setLoginIsOpen] = useState(false);
+const LoginForm = ({ openRegisterModal }) => {
+  let [registerIsOpen, setRegisterIsOpen] = useState(false);
   function openRegisterModal() {
-    setLoginIsOpen(true);
+    setRegisterIsOpen(true);
   }
   const {
     handleSubmit,
@@ -19,32 +19,9 @@ const RegisterForm = ({ openLoginModal }) => {
     console.log(data);
   };
 
-  const password = watch("password", "");
-
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block primaryTextColor font-bold mb-2"
-          >
-            Name
-          </label>
-
-          <input
-            name="name"
-            id="name"
-            placeholder="Type Your Name"
-            type="text"
-            {...register("name", { required: true })}
-            className={`w-full p-2 rounded border ${
-              errors.name ? "border-red-500" : "border-gray-300"
-            }`}
-          />
-
-          {errors.name && <p className="text-red-500 mt-2">Name is Required</p>}
-        </div>
         <div className="mb-4">
           <label
             htmlFor="email"
@@ -93,45 +70,29 @@ const RegisterForm = ({ openLoginModal }) => {
         </div>
 
         <div className="mb-4">
-          <label
-            htmlFor="photo"
-            className="block primaryTextColor font-bold mb-2"
-          >
-            Photo
-          </label>
-          <input
-            type="file"
-            name="photo"
-            accept="image/*"
-            {...register("photo", { required: true })}
-            className="w-full p-2 rounded border border-gray-300"
-          />
-          {errors.photo && (
-            <p className="text-red-500 mt-2">Photo is Required</p>
-          )}
-        </div>
-
-        <div className="mb-4">
           <button
             type="submit"
             className="w-full primaryBgColor text-white p-2 rounded hover:bg-opacity-80"
           >
-            Register
+            Login
           </button>
         </div>
       </form>
       <p className="text-md">
-        You Have Already an Account{" "}
+        Have don't Account{" "}
         <span
           className="cursor-pointer font-semibold text-info"
-          onClick={openLoginModal}
+          onClick={openRegisterModal}
         >
-          Login
+          Register
         </span>
       </p>
-      <Login loginIsOpen={loginIsOpen} setLoginIsOpen={setLoginIsOpen}></Login>
+      <Register
+        registerIsOpen={registerIsOpen}
+        setRegisterIsOpen={setRegisterIsOpen}
+      ></Register>
     </div>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

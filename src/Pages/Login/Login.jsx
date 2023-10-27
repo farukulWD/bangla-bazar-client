@@ -1,19 +1,19 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import RegisterForm from "./RegisterForm";
+import LoginForm from "./LoginForm";
 
-function Register({ registerIsOpen, setRegisterIsOpen }) {
-  function closeRegisterModal() {
-    setRegisterIsOpen(false);
+function Login({ loginIsOpen, setLoginIsOpen }) {
+  function closeLoginModal() {
+    setLoginIsOpen(false);
   }
-  function openLoginModal() {
-    setRegisterIsOpen(false);
-    setLoginIsOpen(true);
+  function openRegisterModal() {
+    setLoginIsOpen(false);
+    setRegisterIsOpen(true);
   }
   return (
     <>
-      <Transition appear show={registerIsOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeRegisterModal}>
+      <Transition appear show={loginIsOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeLoginModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -42,9 +42,9 @@ function Register({ registerIsOpen, setRegisterIsOpen }) {
                     as="h3"
                     className="text-2xl mb-4 font-bold text-center   leading-6 primaryTextColor"
                   >
-                    Register Here
+                    Login Here
                   </Dialog.Title>
-                  <RegisterForm openLoginModal={openLoginModal}></RegisterForm>
+                  <LoginForm openRegisterModal={openRegisterModal}></LoginForm>
                   <p className="text-center text-lg">OR</p>
                   <button>Login With Google</button>
                 </Dialog.Panel>
@@ -56,4 +56,4 @@ function Register({ registerIsOpen, setRegisterIsOpen }) {
     </>
   );
 }
-export default Register;
+export default Login;
