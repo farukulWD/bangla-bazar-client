@@ -3,13 +3,21 @@ import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 import { MdOutlineFavorite } from "react-icons/md";
 import { AuthContext } from "../../Context/AuthProvider";
 import Login from "../../Pages/Login/Login";
+import LoginAndRegisterModal from "../../Pages/LoginAndRegisterModal/LoginAndRegisterModal";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
-  let [loginIsOpen, setLoginIsOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
   function openLoginModal() {
-    setLoginIsOpen(true);
+    setIsOpen(true);
   }
+  const handleLogOut = () => {
+    logOut()
+      .then((res) => {})
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   return (
     <div className="primaryBgColor ">
       <div className="navbar my-container justify-between">
@@ -91,7 +99,7 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src="https://i.ibb.co/LYcSv6c/myPic.jpg" />
+                  <img src={user?.photoURL} />
                 </div>
               </label>
               <ul
@@ -109,9 +117,12 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">
+                  <button
+                    onClick={handleLogOut}
+                    className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75"
+                  >
                     Logout
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -123,10 +134,10 @@ const Navbar = () => {
               login
             </button>
           )}
-          <Login
-            loginIsOpen={loginIsOpen}
-            setLoginIsOpen={setLoginIsOpen}
-          ></Login>
+          <LoginAndRegisterModal
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+          ></LoginAndRegisterModal>
         </div>
       </div>
     </div>

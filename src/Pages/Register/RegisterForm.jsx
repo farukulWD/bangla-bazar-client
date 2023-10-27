@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Login from "../Login/Login";
+import axios from "axios";
+const secretKey = import.meta.env.VITE_PhotoKey;
 
 const RegisterForm = ({ openLoginModal }) => {
   let [loginIsOpen, setLoginIsOpen] = useState(false);
-  function openRegisterModal() {
-    setLoginIsOpen(true);
-  }
+  // function openRegisterModal() {
+  //   setLoginIsOpen(true);
+  // }
   const {
     handleSubmit,
     control,
@@ -16,10 +18,21 @@ const RegisterForm = ({ openLoginModal }) => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-  };
+    const formData = new FormData();
+    formData.append("image", data.photo[0]);
 
-  const password = watch("password", "");
+    axios
+      .post(`https://api.imgbb.com/1/upload?key=${secretKey}`, formData)
+      .then((res) => {
+        if (res.data.data.display_url) {
+          data.photo = res.data.data.display_url;
+        }
+        console.log(data);
+      })
+      .catch((err) => {
+        err.message;
+      });
+  };
 
   return (
     <div>
@@ -79,7 +92,7 @@ const RegisterForm = ({ openLoginModal }) => {
           <input
             name="password"
             id="password"
-            placeholder="Type Your Email"
+            placeholder="Type Your Password"
             type="password"
             {...register("password", { required: true })}
             className={`w-full p-2 rounded border ${
@@ -120,16 +133,6 @@ const RegisterForm = ({ openLoginModal }) => {
           </button>
         </div>
       </form>
-      <p className="text-md">
-        You Have Already an Account{" "}
-        <span
-          className="cursor-pointer font-semibold text-info"
-          onClick={openLoginModal}
-        >
-          Login
-        </span>
-      </p>
-      <Login loginIsOpen={loginIsOpen} setLoginIsOpen={setLoginIsOpen}></Login>
     </div>
   );
 };

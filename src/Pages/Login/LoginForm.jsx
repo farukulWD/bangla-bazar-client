@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Register from "../Register/Register";
 
-const LoginForm = ({ openRegisterModal }) => {
-  let [registerIsOpen, setRegisterIsOpen] = useState(false);
-  function openRegisterModal() {
-    setRegisterIsOpen(true);
-  }
+const LoginForm = () => {
   const {
     handleSubmit,
     control,
@@ -56,7 +52,7 @@ const LoginForm = ({ openRegisterModal }) => {
           <input
             name="password"
             id="password"
-            placeholder="Type Your Email"
+            placeholder="Type Your Password"
             type="password"
             {...register("password", { required: true })}
             className={`w-full p-2 rounded border ${
@@ -78,19 +74,6 @@ const LoginForm = ({ openRegisterModal }) => {
           </button>
         </div>
       </form>
-      <p className="text-md">
-        Have don't Account{" "}
-        <span
-          className="cursor-pointer font-semibold text-info"
-          onClick={openRegisterModal}
-        >
-          Register
-        </span>
-      </p>
-      <Register
-        registerIsOpen={registerIsOpen}
-        setRegisterIsOpen={setRegisterIsOpen}
-      ></Register>
     </div>
   );
 };
