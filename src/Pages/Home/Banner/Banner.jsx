@@ -28,10 +28,10 @@ const Banner = () => {
         className="mySwiper my-4"
       >
         {banner &&
-          banner.map((ban) => {
+          banner.map((ban, index) => {
             return (
-              <SwiperSlide>
-                <div key={ban?.id}>
+              <SwiperSlide key={index}>
+                <div>
                   <img src={ban?.banner_image} alt="" />
                 </div>
               </SwiperSlide>

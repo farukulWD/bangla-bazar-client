@@ -38,8 +38,8 @@ const Categories = () => {
       {categories &&
         categories.map((c) => {
           return (
-            <SwiperSlide>
-              <SingleCategory key={c?.id} category={c}></SingleCategory>
+            <SwiperSlide key={c?.id}>
+              <SingleCategory category={c}></SingleCategory>
             </SwiperSlide>
           );
         })}

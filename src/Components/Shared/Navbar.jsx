@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 import { MdOutlineFavorite } from "react-icons/md";
+import { AuthContext } from "../../Context/AuthProvider";
+import { Link } from "react-router-dom";
+import Register from "../../Pages/Register/Register";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+  let [isOpen, setIsOpen] = useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
   return (
     <div className="primaryBgColor ">
       <div className="navbar my-container justify-between">
@@ -11,13 +19,13 @@ const Navbar = () => {
             BanglaBazar
           </a>
         </div>
-        <div class="relative">
+        <div className="relative">
           <input
             type="text"
             placeholder="Search"
-            class="input input-bordered w-full md:w-96 pr-10"
+            className="input input-bordered w-full md:w-96 pr-10"
           />
-          <button class="absolute text-xl inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+          <button className="absolute text-xl inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
             <AiOutlineSearch></AiOutlineSearch>
           </button>
         </div>
@@ -44,9 +52,7 @@ const Navbar = () => {
                   <span className="font-bold text-lg">8 Items</span>
                   <span className="text-white">Subtotal: $999</span>
                   <div className="card-actions">
-                    <button className="btn btn-primary btn-block">
-                      View cart
-                    </button>
+                    <button className="primaryBtn w-full">View cart</button>
                   </div>
                 </div>
               </div>
@@ -76,41 +82,46 @@ const Navbar = () => {
                   <span className="text-lg">4. Items</span>
 
                   <div className="card-actions">
-                    <button className="btn btn-primary btn-block">
-                      View list
-                    </button>
+                    <button className="primaryBtn w-full">View list</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://i.ibb.co/LYcSv6c/myPic.jpg" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="mt-3 z-[50] p-2 text-white shadow menu menu-sm dropdown-content primaryBgColor rounded-box w-52"
-            >
-              <li>
-                <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">
-                  Profile
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">
-                  Settings
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">
-                  Logout
-                </a>
-              </li>
-            </ul>
-          </div>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src="https://i.ibb.co/LYcSv6c/myPic.jpg" />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[50] p-2 text-white shadow menu menu-sm dropdown-content primaryBgColor rounded-box w-52"
+              >
+                <li>
+                  <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">
+                    Settings
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <button onClick={openModal} className="btn btn-sm secondaryBtnText">
+              login
+            </button>
+          )}
+          <Register isOpen={isOpen} setIsOpen={setIsOpen}></Register>
         </div>
       </div>
     </div>
