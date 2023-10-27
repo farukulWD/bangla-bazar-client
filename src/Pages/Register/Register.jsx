@@ -1,7 +1,14 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { useForm } from "react-hook-form";
+import RegisterForm from "./RegisterForm";
 
-export default function Register({ isOpen, setIsOpen }) {
+function Register({ isOpen, setIsOpen }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   function closeModal() {
     setIsOpen(false);
   }
@@ -33,31 +40,14 @@ export default function Register({ isOpen, setIsOpen }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-[#4a9b35]  p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white  p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg text-center font-medium leading-6 text-gray-900"
+                    className="text-2xl mb-4 font-bold text-center   leading-6 primaryTextColor"
                   >
                     Register Here
                   </Dialog.Title>
-                  <div className="mt-2">
-                    <input type="text" name="name" id="" />
-                  </div>
-
-                  <div className="mt-4 flex justify-between">
-                    <button
-                      className="text-red-600  font-bold"
-                      onClick={closeModal}
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      className="secondaryTextColor  font-bold"
-                      onClick={closeModal}
-                    >
-                      Register
-                    </button>
-                  </div>
+                  <RegisterForm></RegisterForm>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -67,3 +57,4 @@ export default function Register({ isOpen, setIsOpen }) {
     </>
   );
 }
+export default Register;
