@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Login from "../Login/Login";
 import axios from "axios";
 const secretKey = import.meta.env.VITE_PhotoKey;
 
 const RegisterForm = ({ openLoginModal }) => {
-  let [loginIsOpen, setLoginIsOpen] = useState(false);
-  // function openRegisterModal() {
-  //   setLoginIsOpen(true);
-  // }
   const {
     handleSubmit,
     control,

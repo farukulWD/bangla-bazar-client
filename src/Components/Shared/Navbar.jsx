@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 import { MdOutlineFavorite } from "react-icons/md";
 import { AuthContext } from "../../Context/AuthProvider";
-import Login from "../../Pages/Login/Login";
 import LoginAndRegisterModal from "../../Pages/LoginAndRegisterModal/LoginAndRegisterModal";
 
 const Navbar = () => {
