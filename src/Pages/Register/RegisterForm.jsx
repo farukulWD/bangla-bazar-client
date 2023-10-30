@@ -3,10 +3,13 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 const secretKey = import.meta.env.VITE_PhotoKey;
 
 const RegisterForm = ({ closeModal }) => {
   const { registerUser, updateUserProfile } = useContext(AuthContext);
+  const [showPass, setShowPass] = useState(false);
+  const [creatingUser, setCreatingUser] = useState(false);
   const {
     handleSubmit,
     control,
@@ -19,7 +22,7 @@ const RegisterForm = ({ closeModal }) => {
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("image", data.photo[0]);
-
+    setCreatingUser(true);
     axios
       .post(`https://api.imgbb.com/1/upload?key=${secretKey}`, formData)
       .then((res) => {
@@ -30,6 +33,7 @@ const RegisterForm = ({ closeModal }) => {
               if (res.user) {
                 updateUserProfile(data.name, data.photo)
                   .then(() => {
+                    setCreatingUser(false);
                     alert("created user successful");
                     reset();
                     closeModal();
@@ -107,13 +111,18 @@ const RegisterForm = ({ closeModal }) => {
             name="password"
             id="password"
             placeholder="Type Your Password"
-            type="password"
+            type={showPass ? "text" : "password"}
             {...register("password", { required: true })}
-            className={`w-full p-2 rounded border ${
+            className={`w-full p-2 relative rounded border ${
               errors.password ? "border-red-500" : "border-gray-300"
             }`}
           />
-
+          <span
+            onClick={() => setShowPass(!showPass)}
+            className="absolute right-8 cursor-pointer mt-3"
+          >
+            {showPass ? <BsEye></BsEye> : <BsEyeSlash></BsEyeSlash>}
+          </span>
           {errors.password && (
             <p className="text-red-500 mt-2">Password is Required</p>
           )}
@@ -140,10 +149,15 @@ const RegisterForm = ({ closeModal }) => {
 
         <div className="mb-4">
           <button
+            disabled={creatingUser}
             type="submit"
             className="w-full primaryBgColor text-white p-2 rounded hover:bg-opacity-80"
           >
-            Register
+            {creatingUser ? (
+              <span className="loading loading-dots loading-lg"></span>
+            ) : (
+              "Register"
+            )}
           </button>
         </div>
       </form>

@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const LoginForm = ({ closeModal }) => {
+  const { login } = useContext(AuthContext);
+  const [showPass, setShowPass] = useState(false);
+  const [loginUser, setLoginUser] = useState(false);
   const {
     handleSubmit,
     control,
@@ -11,7 +16,15 @@ const LoginForm = ({ closeModal }) => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    setLoginUser(true);
+    login(data.email, data.password)
+      .then((res) => {
+        if (res.user) {
+          setLoginUser(false);
+          alert("you are logged in");
+        }
+      })
+      .catch((err) => console.log(err.message));
   };
 
   return (
@@ -52,13 +65,18 @@ const LoginForm = ({ closeModal }) => {
             name="password"
             id="password"
             placeholder="Type Your Password"
-            type="password"
+            type={showPass ? "text" : "password"}
             {...register("password", { required: true })}
-            className={`w-full p-2 rounded border ${
+            className={`w-full p-2 relative rounded border ${
               errors.password ? "border-red-500" : "border-gray-300"
             }`}
           />
-
+          <span
+            onClick={() => setShowPass(!showPass)}
+            className="absolute right-8 cursor-pointer mt-3"
+          >
+            {showPass ? <BsEye></BsEye> : <BsEyeSlash></BsEyeSlash>}
+          </span>
           {errors.password && (
             <p className="text-red-500 mt-2">Password is Required</p>
           )}
@@ -66,10 +84,15 @@ const LoginForm = ({ closeModal }) => {
 
         <div className="mb-4">
           <button
+            disabled={loginUser}
             type="submit"
             className="w-full primaryBgColor text-white p-2 rounded hover:bg-opacity-80"
           >
-            Login
+            {loginUser ? (
+              <span className="loading loading-dots loading-md"></span>
+            ) : (
+              "Login"
+            )}
           </button>
         </div>
       </form>
