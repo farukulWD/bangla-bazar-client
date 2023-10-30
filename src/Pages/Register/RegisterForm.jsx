@@ -4,6 +4,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
+import Swal from "sweetalert2";
 const secretKey = import.meta.env.VITE_PhotoKey;
 
 const RegisterForm = ({ closeModal }) => {
@@ -36,6 +37,13 @@ const RegisterForm = ({ closeModal }) => {
                     setCreatingUser(false);
                     alert("created user successful");
                     reset();
+                    Swal.fire({
+                      position: "top-end",
+                      icon: "success",
+                      title: "Login has been success",
+                      showConfirmButton: false,
+                      timer: 1500,
+                    });
                     closeModal();
                   })
                   .catch((err) => {

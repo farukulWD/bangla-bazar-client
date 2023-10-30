@@ -2,17 +2,20 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { AuthContext } from "../../Context/AuthProvider";
+import Swal from "sweetalert2";
 
 const LoginForm = ({ closeModal }) => {
   const { login } = useContext(AuthContext);
   const [showPass, setShowPass] = useState(false);
   const [loginUser, setLoginUser] = useState(false);
+
   const {
     handleSubmit,
     control,
     register,
     formState: { errors },
     watch,
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
@@ -21,7 +24,15 @@ const LoginForm = ({ closeModal }) => {
       .then((res) => {
         if (res.user) {
           setLoginUser(false);
-          alert("you are logged in");
+          reset();
+          closeModal();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Login has been success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       })
       .catch((err) => console.log(err.message));
