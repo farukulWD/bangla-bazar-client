@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
 const secretKey = import.meta.env.VITE_PhotoKey;
 
-const RegisterForm = ({ openLoginModal }) => {
+const RegisterForm = ({ closeModal }) => {
+  const { registerUser, updateUserProfile } = useContext(AuthContext);
   const {
     handleSubmit,
     control,
     register,
     formState: { errors },
     watch,
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
@@ -21,12 +25,27 @@ const RegisterForm = ({ openLoginModal }) => {
       .then((res) => {
         if (res.data.data.display_url) {
           data.photo = res.data.data.display_url;
+          registerUser(data.email, data.password)
+            .then((res) => {
+              if (res.user) {
+                updateUserProfile(data.name, data.photo)
+                  .then(() => {
+                    alert("created user successful");
+                    reset();
+                    closeModal();
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              }
+            })
+            .catch((err) => console.log(err));
         }
-        console.log(data);
       })
       .catch((err) => {
         err.message;
       });
+    console.log(data.email);
   };
 
   return (

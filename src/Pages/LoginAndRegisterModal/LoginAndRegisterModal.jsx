@@ -47,9 +47,9 @@ const LoginAndRegisterModal = ({ isOpen, setIsOpen }) => {
                       : "Register Now"}
                   </Dialog.Title>
                   {loginOrRegister === "login" ? (
-                    <LoginForm></LoginForm>
+                    <LoginForm closeModal={closeModal}></LoginForm>
                   ) : (
-                    <RegisterForm></RegisterForm>
+                    <RegisterForm closeModal={closeModal}></RegisterForm>
                   )}
                   <div>
                     {loginOrRegister === "login" ? (
