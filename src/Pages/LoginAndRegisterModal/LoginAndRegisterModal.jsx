@@ -3,13 +3,20 @@ import { Dialog, Transition } from "@headlessui/react";
 import LoginForm from "../Login/LoginForm";
 import RegisterForm from "../Register/RegisterForm";
 import GoogleLogin from "../../Components/Shared/GoogleLogin";
+import ForgotPassModal from "../ForgotPassModal/ForgotPassModal";
 
 const LoginAndRegisterModal = ({ isOpen, setIsOpen }) => {
   const [loginOrRegister, setLoginOrRegister] = useState("login");
+  const [passForgot, setPassForgot] = useState(false);
   const closeModal = () => {
+    setPassForgot(false);
     setIsOpen(false);
   };
 
+  const openLoginForm = () => {
+    setPassForgot(false);
+    setLoginOrRegister("login");
+  };
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -42,17 +49,29 @@ const LoginAndRegisterModal = ({ isOpen, setIsOpen }) => {
                     as="h3"
                     className="text-2xl mb-4 font-bold text-center   leading-6 primaryTextColor"
                   >
-                    {loginOrRegister === "login"
+                    {loginOrRegister === "login" && !passForgot
                       ? "Login Here"
-                      : "Register Now"}
+                      : loginOrRegister === "register" && !passForgot
+                      ? "Register Now"
+                      : "Reset Your password"}
                   </Dialog.Title>
-                  {loginOrRegister === "login" ? (
+                  {/* {loginOrRegister === "login" ? (
                     <LoginForm closeModal={closeModal}></LoginForm>
                   ) : (
                     <RegisterForm closeModal={closeModal}></RegisterForm>
+                  )} */}
+                  {loginOrRegister === "login" && passForgot == false && (
+                    <LoginForm closeModal={closeModal}></LoginForm>
                   )}
+                  {loginOrRegister === "register" && passForgot == false && (
+                    <RegisterForm closeModal={closeModal}></RegisterForm>
+                  )}
+                  {passForgot && (
+                    <ForgotPassModal closeModal={closeModal}></ForgotPassModal>
+                  )}
+
                   <div>
-                    {loginOrRegister === "login" ? (
+                    {loginOrRegister === "login" && !passForgot ? (
                       <p className="text-md">
                         Have don't Account{" "}
                         <span
@@ -62,7 +81,7 @@ const LoginAndRegisterModal = ({ isOpen, setIsOpen }) => {
                           Register
                         </span>
                       </p>
-                    ) : (
+                    ) : loginOrRegister === "register" && !passForgot ? (
                       <p className="text-md">
                         Already Have an Account{" "}
                         <span
@@ -72,9 +91,39 @@ const LoginAndRegisterModal = ({ isOpen, setIsOpen }) => {
                           Login
                         </span>
                       </p>
+                    ) : (
+                      ""
                     )}
-                    <p className="text-xl font-bold text-center my-2">OR</p>
-                    <GoogleLogin closeModal={closeModal}></GoogleLogin>
+
+                    {passForgot == false && (
+                      <>
+                        <p className="text-xl font-bold text-center my-2">OR</p>
+                        <GoogleLogin closeModal={closeModal}></GoogleLogin>
+                      </>
+                    )}
+                    {loginOrRegister === "login" && passForgot == false ? (
+                      <p className="cursor-pointer">
+                        Forgot your{" "}
+                        <span
+                          onClick={() => setPassForgot(true)}
+                          className="text-info"
+                        >
+                          password
+                        </span>
+                      </p>
+                    ) : loginOrRegister === "login" && passForgot == true ? (
+                      <p className="cursor-pointer">
+                        Go to{" "}
+                        <span
+                          onClick={() => openLoginForm()}
+                          className="text-info"
+                        >
+                          login
+                        </span>
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

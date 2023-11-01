@@ -4,10 +4,9 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { AuthContext } from "../../Context/AuthProvider";
 import Swal from "sweetalert2";
 
-const LoginForm = ({ closeModal }) => {
-  const { login } = useContext(AuthContext);
+const ForgotPassModal = ({ closeModal }) => {
+  const { resetPassword } = useContext(AuthContext);
 
-  const [showPass, setShowPass] = useState(false);
   const [loginUser, setLoginUser] = useState(false);
 
   const {
@@ -20,23 +19,7 @@ const LoginForm = ({ closeModal }) => {
   } = useForm();
 
   const onSubmit = (data) => {
-    setLoginUser(true);
-    login(data.email, data.password)
-      .then((res) => {
-        if (res.user) {
-          setLoginUser(false);
-          reset();
-          closeModal();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Login has been success",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      })
-      .catch((err) => console.log(err.message));
+    console.log(data);
   };
 
   return (
@@ -65,34 +48,7 @@ const LoginForm = ({ closeModal }) => {
             <p className="text-red-500 mt-2">Email is Required</p>
           )}
         </div>
-        <div className="mb-4">
-          <label
-            htmlFor="password"
-            className="block primaryTextColor font-bold mb-2"
-          >
-            Password
-          </label>
 
-          <input
-            name="password"
-            id="password"
-            placeholder="Type Your Password"
-            type={showPass ? "text" : "password"}
-            {...register("password", { required: true })}
-            className={`w-full p-2 relative rounded border ${
-              errors.password ? "border-red-500" : "border-gray-300"
-            }`}
-          />
-          <span
-            onClick={() => setShowPass(!showPass)}
-            className="absolute right-8 cursor-pointer mt-3"
-          >
-            {showPass ? <BsEye></BsEye> : <BsEyeSlash></BsEyeSlash>}
-          </span>
-          {errors.password && (
-            <p className="text-red-500 mt-2">Password is Required</p>
-          )}
-        </div>
         <div className="mb-4">
           <button
             disabled={loginUser}
@@ -102,7 +58,7 @@ const LoginForm = ({ closeModal }) => {
             {loginUser ? (
               <span className="loading loading-dots loading-md"></span>
             ) : (
-              "Login"
+              "Reset Your Password"
             )}
           </button>
         </div>
@@ -111,4 +67,4 @@ const LoginForm = ({ closeModal }) => {
   );
 };
 
-export default LoginForm;
+export default ForgotPassModal;
