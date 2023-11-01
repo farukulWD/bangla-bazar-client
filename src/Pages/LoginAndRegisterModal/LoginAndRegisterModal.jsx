@@ -10,6 +10,7 @@ const LoginAndRegisterModal = ({ isOpen, setIsOpen }) => {
   const [passForgot, setPassForgot] = useState(false);
   const closeModal = () => {
     setPassForgot(false);
+    setLoginOrRegister("login");
     setIsOpen(false);
   };
 
@@ -67,7 +68,10 @@ const LoginAndRegisterModal = ({ isOpen, setIsOpen }) => {
                     <RegisterForm closeModal={closeModal}></RegisterForm>
                   )}
                   {passForgot && (
-                    <ForgotPassModal closeModal={closeModal}></ForgotPassModal>
+                    <ForgotPassModal
+                      closeModal={closeModal}
+                      openLogin={openLoginForm}
+                    ></ForgotPassModal>
                   )}
 
                   <div>

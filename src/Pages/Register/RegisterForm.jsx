@@ -35,7 +35,7 @@ const RegisterForm = ({ closeModal }) => {
                 updateUserProfile(data.name, data.photo)
                   .then(() => {
                     setCreatingUser(false);
-                    alert("created user successful");
+
                     reset();
                     Swal.fire({
                       position: "top-end",

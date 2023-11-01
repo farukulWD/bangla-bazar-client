@@ -4,9 +4,8 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { AuthContext } from "../../Context/AuthProvider";
 import Swal from "sweetalert2";
 
-const ForgotPassModal = ({ closeModal }) => {
+const ForgotPassModal = ({ closeModal, openLogin }) => {
   const { resetPassword } = useContext(AuthContext);
-
   const [loginUser, setLoginUser] = useState(false);
 
   const {
@@ -19,6 +18,21 @@ const ForgotPassModal = ({ closeModal }) => {
   } = useForm();
 
   const onSubmit = (data) => {
+    resetPassword(data.email)
+      .then((res) => {
+        reset();
+        Swal.fire({
+          position: "center",
+          icon: "info",
+          title: "Please Check email",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        openLogin();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     console.log(data);
   };
 
