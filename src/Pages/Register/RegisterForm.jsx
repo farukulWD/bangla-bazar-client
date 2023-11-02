@@ -162,7 +162,7 @@ const RegisterForm = ({ closeModal }) => {
             className="w-full primaryBgColor text-white p-2 rounded hover:bg-opacity-80"
           >
             {creatingUser ? (
-              <span className="loading loading-dots loading-lg"></span>
+              <span className="loading loading-dots loading-sm"></span>
             ) : (
               "Register"
             )}

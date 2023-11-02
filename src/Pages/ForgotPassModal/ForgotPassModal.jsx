@@ -70,7 +70,7 @@ const ForgotPassModal = ({ closeModal, openLogin }) => {
             className="w-full primaryBgColor text-white p-2 rounded hover:bg-opacity-80"
           >
             {loginUser ? (
-              <span className="loading loading-dots loading-md"></span>
+              <span className="loading loading-dots loading-sm"></span>
             ) : (
               "Reset Your Password"
             )}
