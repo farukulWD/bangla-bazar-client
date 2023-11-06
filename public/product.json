@@ -1,0 +1,122 @@
+[
+  {
+    "product_id": 1,
+    "product_name": "Smartphone",
+    "price": 499.99,
+    "description": "A high-end smartphone with advanced features and a powerful camera.",
+    "brand": "TechCo",
+    "category": "Electronics",
+    "sub_category": "Mobile Phones",
+    "group_name": "Electronics Group",
+    "image": "https://example.com/images/smartphone.jpg",
+    "company_name": "TechCo Inc."
+  },
+  {
+    "product_id": 2,
+    "product_name": "Laptop",
+    "price": 899.99,
+    "description": "A lightweight laptop with a fast processor and long battery life.",
+    "brand": "Laptoptech",
+    "category": "Electronics",
+    "sub_category": "Laptops",
+    "group_name": "Electronics Group",
+    "image": "https://example.com/images/laptop.jpg",
+    "company_name": "Laptoptech Technologies"
+  },
+  {
+    "product_id": 3,
+    "product_name": "HD Television",
+    "price": 599.99,
+    "description": "A 50-inch high-definition TV with smart features for streaming content.",
+    "brand": "ViewMax",
+    "category": "Electronics",
+    "sub_category": "Televisions",
+    "group_name": "Electronics Group",
+    "image": "https://example.com/images/tv.jpg",
+    "company_name": "ViewMax Electronics"
+  },
+  {
+    "product_id": 4,
+    "product_name": "Coffee Maker",
+    "price": 49.99,
+    "description": "A programmable coffee maker that brews your favorite coffee at home.",
+    "brand": "BrewMaster",
+    "category": "Kitchen Appliances",
+    "sub_category": "Coffee Makers",
+    "group_name": "Kitchen Appliances Group",
+    "image": "https://example.com/images/coffee_maker.jpg",
+    "company_name": "BrewMaster Appliances"
+  },
+  {
+    "product_id": 5,
+    "product_name": "Running Shoes",
+    "price": 79.99,
+    "description": "High-quality running shoes for fitness enthusiasts.",
+    "brand": "RunFast",
+    "category": "Sports & Outdoors",
+    "sub_category": "Footwear",
+    "group_name": "Sports & Outdoors Group",
+    "image": "https://example.com/images/running_shoes.jpg",
+    "company_name": "RunFast Sportswear"
+  },
+  {
+    "product_id": 6,
+    "product_name": "Digital Camera",
+    "price": 349.99,
+    "description": "A compact digital camera with excellent image quality and zoom capabilities.",
+    "brand": "PhotoPro",
+    "category": "Electronics",
+    "sub_category": "Cameras",
+    "group_name": "Electronics Group",
+    "image": "https://example.com/images/camera.jpg",
+    "company_name": "PhotoPro Imaging"
+  },
+  {
+    "product_id": 7,
+    "product_name": "Bluetooth Speaker",
+    "price": 59.99,
+    "description": "A portable Bluetooth speaker with great sound quality for on-the-go music.",
+    "brand": "SoundWave",
+    "category": "Electronics",
+    "sub_category": "Audio Equipment",
+    "group_name": "Electronics Group",
+    "image": "https://example.com/images/speaker.jpg",
+    "company_name": "SoundWave Audio"
+  },
+  {
+    "product_id": 8,
+    "product_name": "Gaming Console",
+    "price": 399.99,
+    "description": "A gaming console with cutting-edge graphics and a vast game library.",
+    "brand": "GameTech",
+    "category": "Gaming",
+    "sub_category": "Game Consoles",
+    "group_name": "Gaming Group",
+    "image": "https://example.com/images/gaming_console.jpg",
+    "company_name": "GameTech Entertainment"
+  },
+  {
+    "product_id": 9,
+    "product_name": "Microwave Oven",
+    "price": 129.99,
+    "description": "A countertop microwave oven with multiple cooking options.",
+    "brand": "HeatMaster",
+    "category": "Kitchen Appliances",
+    "sub_category": "Microwaves",
+    "group_name": "Kitchen Appliances Group",
+    "image": "https://example.com/images/microwave.jpg",
+    "company_name": "HeatMaster Appliances"
+  },
+  {
+    "product_id": 10,
+    "product_name": "Treadmill",
+    "price": 699.99,
+    "description": "A high-quality treadmill for home workouts with various fitness programs.",
+    "brand": "FitZone",
+    "category": "Fitness Equipment",
+    "sub_category": "Exercise Machines",
+    "group_name": "Fitness Equipment Group",
+    "image": "https://example.com/images/treadmill.jpg",
+    "company_name": "FitZone Fitness"
+  }
+]
