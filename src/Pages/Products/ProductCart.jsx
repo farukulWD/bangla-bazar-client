@@ -1,20 +1,17 @@
 import React from "react";
 
-const ProductCart = () => {
+const ProductCart = ({ product }) => {
   return (
     <div>
       <div className="card card-side bg-base-100 shadow-xl">
         <figure>
-          <img
-            src="/images/stock/photo-1635805737707-575885ab0820.jpg"
-            alt="Movie"
-          />
+          <img src={product?.image} alt={product?.product_name} />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">New movie is released!</h2>
-          <p>Click the button to watch on Jetflix app.</p>
+          <h2 className="card-title">{product?.product_name}</h2>
+
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Watch</button>
+            <button className="btn btn-primary">bye</button>
           </div>
         </div>
       </div>

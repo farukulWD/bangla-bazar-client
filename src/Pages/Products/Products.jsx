@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import ProductCart from "./ProductCart";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -9,7 +10,13 @@ const Products = () => {
     axios.get("product.json").then((res) => setProducts(res.data));
   }, []);
   console.log(products);
-  return <div>This is products Page</div>;
+  return (
+    <div>
+      {products.map((product) => (
+        <ProductCart key={product._id} product={product}></ProductCart>
+      ))}
+    </div>
+  );
 };
 
 export default Products;
