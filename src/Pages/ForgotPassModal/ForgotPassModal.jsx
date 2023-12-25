@@ -67,7 +67,7 @@ const ForgotPassModal = ({ closeModal, openLogin }) => {
           <button
             disabled={loginUser}
             type="submit"
-            className="w-full primaryBgColor text-white p-2 rounded hover:bg-opacity-80"
+            className="w-full bg-primary-color text-white p-2 rounded hover:bg-opacity-80"
           >
             {loginUser ? (
               <span className="loading loading-dots loading-sm"></span>

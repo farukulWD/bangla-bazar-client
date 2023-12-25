@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./styles/variable.css";
+
+:root {
+  --primary-color: #4a9b35;
+  --secondary-color: #000;
+}
+
 .primaryBgColor {
   @apply bg-[#4a9b35];
 }

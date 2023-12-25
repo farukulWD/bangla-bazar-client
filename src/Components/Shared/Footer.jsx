@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="primaryBgColor">
+    <div className="bg-primary-color">
       <footer className="footer py-10 my-container text-white">
         <nav>
           <header className="footer-title">Services</header>

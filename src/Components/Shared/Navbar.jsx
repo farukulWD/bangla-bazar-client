@@ -18,7 +18,7 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="primaryBgColor ">
+    <div className="bg-primary-color ">
       <div className="navbar my-container justify-between">
         <div className="">
           <a className="font-bold hidden md:block text-white text-xl mr-5 ">
@@ -54,7 +54,7 @@ const Navbar = () => {
                 tabIndex={0}
                 className="mt-3 z-[100] card card-compact dropdown-content w-52 bg-base-100 shadow"
               >
-                <div className="card-body rounded-md primaryBgColor">
+                <div className="card-body rounded-md bg-primary-color">
                   <span className="font-bold text-lg">8 Items</span>
                   <span className="text-white">Subtotal: $999</span>
                   <div className="card-actions">
@@ -81,7 +81,7 @@ const Navbar = () => {
                 tabIndex={0}
                 className="mt-3 z-[100] card card-compact dropdown-content w-52  shadow"
               >
-                <div className="card-body rounded-md primaryBgColor">
+                <div className="card-body rounded-md bg-primary-color">
                   <span className="text-lg">1. Items</span>
                   <span className="text-lg">2. Items</span>
                   <span className="text-lg">3. Items</span>
@@ -103,7 +103,7 @@ const Navbar = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="mt-3 z-[50] p-2 text-white shadow menu menu-sm dropdown-content primaryBgColor rounded-box w-52"
+                className="mt-3 z-[50] p-2 text-white shadow menu menu-sm dropdown-content bg-primary-color rounded-box w-52"
               >
                 <li>
                   <a className="hover:text-[#4a9b35] text-sm font-semibold hover:rounded-lg hover:bg-white transition-all delay-75">
