@@ -42,7 +42,7 @@ const ForgotPassModal = ({ closeModal, openLogin }) => {
         <div className="mb-4">
           <label
             htmlFor="email"
-            className="block primaryTextColor font-bold mb-2"
+            className="block  text-primary-color font-bold mb-2"
           >
             Email
           </label>

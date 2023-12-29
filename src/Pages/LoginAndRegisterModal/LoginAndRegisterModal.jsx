@@ -48,7 +48,7 @@ const LoginAndRegisterModal = ({ isOpen, setIsOpen }) => {
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white  p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-2xl mb-4 font-bold text-center   leading-6 primaryTextColor"
+                    className="text-2xl mb-4 font-bold text-center   leading-6  text-primary-color"
                   >
                     {loginOrRegister === "login" && !passForgot
                       ? "Login Here"

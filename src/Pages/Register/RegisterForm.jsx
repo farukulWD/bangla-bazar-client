@@ -66,7 +66,7 @@ const RegisterForm = ({ closeModal }) => {
         <div className="mb-4">
           <label
             htmlFor="name"
-            className="block primaryTextColor font-bold mb-2"
+            className="block  text-primary-color font-bold mb-2"
           >
             Name
           </label>
@@ -87,7 +87,7 @@ const RegisterForm = ({ closeModal }) => {
         <div className="mb-4">
           <label
             htmlFor="email"
-            className="block primaryTextColor font-bold mb-2"
+            className="block  text-primary-color font-bold mb-2"
           >
             Email
           </label>
@@ -110,7 +110,7 @@ const RegisterForm = ({ closeModal }) => {
         <div className="mb-4">
           <label
             htmlFor="password"
-            className="block primaryTextColor font-bold mb-2"
+            className="block  text-primary-color font-bold mb-2"
           >
             Password
           </label>
@@ -139,7 +139,7 @@ const RegisterForm = ({ closeModal }) => {
         <div className="mb-4">
           <label
             htmlFor="photo"
-            className="block primaryTextColor font-bold mb-2"
+            className="block  text-primary-color font-bold mb-2"
           >
             Photo
           </label>
