@@ -1,34 +1,25 @@
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
-// This function can be marked `async` if using `await` inside
 export async function middleware(request) {
-  const userInfo = await getToken({
+  const token = await getToken({
     req: request,
-    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+    secret: process.env.NEXTAUTH_SECRET,
   });
+  
 
-  // console.log(
-  //   "middleware ran>>>>]]]",
-  //   request.nextUrl.pathname,
+  console.log("Middleware Path:", request.nextUrl.pathname);
+  console.log("User Email:", token?.email);
 
-  //   "userInfo",
-  //   userInfo?.email
-  // );
-
-  if (!userInfo) {
-    return NextResponse.redirect(new URL(`/auth/login`, request.url));
+  // Redirect unauthenticated users
+  if (!token) {
+    return NextResponse.redirect(new URL("/auth/login", request.url));
   }
 
   return NextResponse.next();
 }
 
-// See "Matching Paths" below to learn more
+// Define protected routes
 export const config = {
-  matcher: [
-    "/user/:path*",
-    "/order/:path*",
-    "/checkout/:path*",
-    // "/auth/login/:path*",
-  ],
+  matcher: ["/user/:path*", "/order/:path*", "/checkout/:path*"],
 };

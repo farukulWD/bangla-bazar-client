@@ -61,6 +61,7 @@ const useLoginSubmit = () => {
         return setLoading(false);
       } else {
         // Login logic (no changes)
+        // console.log(email, password, "login");
         const result = await signIn("credentials", {
           redirect: false,
           email,
@@ -68,7 +69,7 @@ const useLoginSubmit = () => {
           callbackUrl: "/user/dashboard",
         });
 
-        // console.log("result", result);
+        console.log("result", result);
 
         if (result?.error) {
           notifyError(result?.error);
@@ -76,6 +77,7 @@ const useLoginSubmit = () => {
           setLoading(false);
         } else if (result?.ok) {
           const url = redirectUrl ? "/checkout" : result.url;
+console.log(url, "url");
           router.push(url);
           setLoading(false);
         }

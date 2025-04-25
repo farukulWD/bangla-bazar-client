@@ -47,8 +47,13 @@ export const getDynamicAuthOptions = async () => {
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
+        console.log("credentials", credentials);
         try {
-          const userInfo = await CustomerServices.loginCustomer(credentials);
+          const userInfo = await CustomerServices.loginCustomer(
+            credentials.email,
+            credentials.password
+          );
+
           return userInfo;
         } catch (error) {
           // Handle custom error from backend
@@ -62,8 +67,14 @@ export const getDynamicAuthOptions = async () => {
 
   const authOptions = {
     providers,
+    secret: process.env.NEXTAUTH_SECRET,
+    debug: true,
+    session: {
+      strategy: "jwt", // Use JWT for session handling
+    },
     callbacks: {
       async signIn({ user, account }) {
+        console.log("signIn", user, account);
         if (account.provider !== "credentials") {
           try {
             const res = await CustomerServices.signUpWithOauthProvider(user);

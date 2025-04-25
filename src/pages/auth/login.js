@@ -33,7 +33,7 @@ const Login = () => {
                     <div className="form-group">
                       <InputArea
                         register={register}
-                        defaultValue="justin@gmail.com"
+                        defaultValue="farukgb1999@gmail.com"
                         label="Email"
                         name="email"
                         type="email"
@@ -46,7 +46,7 @@ const Login = () => {
                     <div className="form-group">
                       <InputArea
                         register={register}
-                        defaultValue="12345678"
+                        defaultValue="Passwoord@wd1"
                         label="Password"
                         name="password"
                         type="password"
