@@ -50,8 +50,7 @@ export const getDynamicAuthOptions = async () => {
         console.log("credentials", credentials);
         try {
           const userInfo = await CustomerServices.loginCustomer(
-            credentials.email,
-            credentials.password
+            credentials
           );
 
           return userInfo;
