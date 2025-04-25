@@ -1,1 +1,2 @@
-# This is E-Commerce Project
+Bangla-bazar Frontend Documentation
+
