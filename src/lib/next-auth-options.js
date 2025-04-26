@@ -25,6 +25,7 @@ export const getDynamicAuthOptions = async () => {
     staleTime: 4 * 60 * 1000, // Api request after 4 minutes
   });
 
+
   // console.log("storeSetting", storeSetting);
 
   const providers = [
@@ -48,10 +49,9 @@ export const getDynamicAuthOptions = async () => {
       },
       authorize: async (credentials) => {
         console.log("credentials", credentials);
+        if (!credentials) return null;
         try {
-          const userInfo = await CustomerServices.loginCustomer(
-            credentials
-          );
+          const userInfo = await CustomerServices.loginCustomer(credentials);
 
           return userInfo;
         } catch (error) {
@@ -66,14 +66,9 @@ export const getDynamicAuthOptions = async () => {
 
   const authOptions = {
     providers,
-    secret: process.env.NEXTAUTH_SECRET,
-    debug: true,
-    session: {
-      strategy: "jwt", // Use JWT for session handling
-    },
+
     callbacks: {
       async signIn({ user, account }) {
-        console.log("signIn", user, account);
         if (account.provider !== "credentials") {
           try {
             const res = await CustomerServices.signUpWithOauthProvider(user);
@@ -100,6 +95,7 @@ export const getDynamicAuthOptions = async () => {
         }
         return true;
       },
+
       async jwt({ token, user, trigger, session }) {
         if (user) {
           token.id = user._id;
@@ -120,6 +116,7 @@ export const getDynamicAuthOptions = async () => {
 
         return token;
       },
+
       async session({ session, token }) {
         session.user.id = token.id;
         session.user.name = token.name;
@@ -137,7 +134,13 @@ export const getDynamicAuthOptions = async () => {
       },
     },
     secret: process.env.NEXTAUTH_SECRET,
+    session: {
+      strategy: "jwt",
+    },
+    debug: true,
   };
 
+
+ 
   return authOptions;
 };

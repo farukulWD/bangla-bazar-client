@@ -8,6 +8,7 @@ import { signIn } from "next-auth/react";
 
 import { notifyError, notifySuccess } from "@utils/toast";
 import CustomerServices from "@services/CustomerServices";
+import { getUserSession } from "@lib/auth";
 
 const useLoginSubmit = () => {
   const router = useRouter();
@@ -69,7 +70,7 @@ const useLoginSubmit = () => {
           callbackUrl: "/user/dashboard",
         });
 
-        console.log("result", result);
+       
 
         if (result?.error) {
           notifyError(result?.error);
@@ -77,7 +78,8 @@ const useLoginSubmit = () => {
           setLoading(false);
         } else if (result?.ok) {
           const url = redirectUrl ? "/checkout" : result.url;
-console.log(url, "url");
+
+         
           router.push(url);
           setLoading(false);
         }

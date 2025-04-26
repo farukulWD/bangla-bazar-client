@@ -2,14 +2,13 @@ import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
 export async function middleware(request) {
+  console.log("Request Headers:", request.headers);
   const token = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
   });
-  
 
-  console.log("Middleware Path:", request.nextUrl.pathname);
-  console.log("User Email:", token?.email);
+  // console.log(process.env.NEXTAUTH_SECRET)
 
   // Redirect unauthenticated users
   if (!token) {

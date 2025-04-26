@@ -46,7 +46,7 @@ const Login = () => {
                     <div className="form-group">
                       <InputArea
                         register={register}
-                        defaultValue="Passwoord@wd1"
+                        defaultValue="Password@wd1"
                         label="Password"
                         name="password"
                         type="password"
