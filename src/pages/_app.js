@@ -76,6 +76,8 @@ function MyApp({ Component, pageProps }) {
         <TawkMessengerReact
           propertyId={storeSetting?.tawk_chat_property_id || ""}
           widgetId={storeSetting?.tawk_chat_widget_id || ""}
+          
+          
         />
       )}
       <QueryClientProvider client={queryClient}>

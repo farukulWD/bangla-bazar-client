@@ -3,12 +3,14 @@ import { NextResponse } from "next/server";
 
 export async function middleware(request) {
   console.log("Request Headers:", request.headers);
+
+  // Wait for 2 seconds before requesting the token
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   const token = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
   });
-
-  // console.log(process.env.NEXTAUTH_SECRET)
 
   // Redirect unauthenticated users
   if (!token) {
