@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+PROJECT_INDEX.md
+
 # next.js
 /.next/
 /out/

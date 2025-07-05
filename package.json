@@ -74,7 +74,7 @@
     "tailwind-scrollbar-hide": "^1.0.4",
     "use-local-storage-state": "^13.0.0"
   },
-  "author": "HtmlLover",
+  "author": "bangla-bazar-store",
   "license": "Regular",
   "devDependencies": {
     "@tailwindcss/forms": "^0.4.0",
